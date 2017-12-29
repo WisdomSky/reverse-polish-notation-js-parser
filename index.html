@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reverse Polish Notation Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="wisdomsky-rpn-parser.min.js"></script>
+    <script>
+        $(function () {
+            $('#input').on('keyup', function () {
+                console.log('w');
+                try {
+                    $('#result').text(parser.parse($('#input').val()));
+                } catch (e) {
+                    $('#result').text('Invalid :(');
+                }
+            });
+        });
+    </script>
+
+
+    <style>
+        .container {
+            text-align: center;
+            font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        }
+
+        h1 {
+
+            text-align: center;
+            color: #bbb;
+        }
+
+        .input-container {
+            display: inline-block;
+            width: 324px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        #input {
+            width: 300px;
+            height: 45px;
+            border: 0;
+            outline: 0 none;
+            font-size: 20px;
+            color: #bbb;
+        }
+
+        .result-container {
+            color: #aaa;
+            text-align: center;
+            margin-top: 30px;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 60px;
+        }
+
+        .source {
+            margin-top: 50px;
+            color: #ccc;
+        }
+
+        a {
+            color: #5bc0de;
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Reverse Polish Notation Calculator</h1>
+        <div class="input-container">
+            <input type="text" placeholder="1 3 5 + -" id="input">
+        </div>
+        <div class="result-container">
+            <div>The result is</div>
+            <span id="result">-7</span>
+        </div>
+        <div class="source">
+            By <a href="http://facebook.com/WisdomSky" target="_blank">WisdomSky</a>.
+            Check the source <a href="https://github.com/WisdomSky/reverse-polish-notation-js-parser" target="_blank">here</a>.
+        </div>
+    </div>
+</body>
+</html>
