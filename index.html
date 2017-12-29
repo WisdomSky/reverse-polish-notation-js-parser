@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <title>Reverse Polish Notation Calculator</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="wisdomsky-rpn-parser.min.js"></script>
+    <script src="bin/rpn-parser.min.js"></script>
     <script>
         $(function () {
             $('#input').on('keyup', function () {
-                console.log('w');
                 try {
                     $('#result').text(parser.parse($('#input').val()));
                 } catch (e) {
@@ -54,6 +53,7 @@
             text-align: center;
             margin-top: 30px;
         }
+
         #result {
             margin-top: 15px;
             font-size: 60px;
