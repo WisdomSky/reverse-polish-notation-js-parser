@@ -11,7 +11,7 @@ function wrapParen(str) {
 }
 
 
-var stack = []
+var rpn_stack = []
 
 %}
 
@@ -39,35 +39,35 @@ var stack = []
 
 expressions
     : e EOF
-        { return stack.length ? stack[0] : 'unknown error'; }
+        { return rpn_stack.length ? rpn_stack[0] : 'unknown error'; }
     ;
 
 e
     : e e '+'
         {
-            stack.push([stack.pop(), stack.pop()].reverse().join(' + '));
+            rpn_stack.push([rpn_stack.pop(), rpn_stack.pop()].reverse().join(' + '));
         }
     | e e '-'
         {
-            stack.push([stack.pop(), stack.pop()].reverse().join(' - '));
+            rpn_stack.push([rpn_stack.pop(), rpn_stack.pop()].reverse().join(' - '));
         }
     | e e '/'
         {
-            stack.push([wrapParen(stack.pop()), wrapParen(stack.pop())].reverse().join(' / '));
+            rpn_stack.push([wrapParen(rpn_stack.pop()), wrapParen(rpn_stack.pop())].reverse().join(' / '));
         }
     | e e '*'
         {
-            stack.push([wrapParen(stack.pop()), wrapParen(stack.pop())].reverse().join(' * '));
+            rpn_stack.push([wrapParen(rpn_stack.pop()), wrapParen(rpn_stack.pop())].reverse().join(' * '));
         }
     | e e '%'
         {
-            stack.push([wrapParen(stack.pop()), wrapParen(stack.pop())].reverse().join(' % '));
+            rpn_stack.push([wrapParen(rpn_stack.pop()), wrapParen(rpn_stack.pop())].reverse().join(' % '));
         }
     | e e '^'
         {
-            stack.push([wrapParen(stack.pop()), wrapParen(stack.pop())].reverse().join(' ^ '));
+            rpn_stack.push([wrapParen(rpn_stack.pop()), wrapParen(rpn_stack.pop())].reverse().join(' ^ '));
         }
     | NUMBER
         {
-            stack.push(Number($1))
+            rpn_stack.push(Number($1))
         };
