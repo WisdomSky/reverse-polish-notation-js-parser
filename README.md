@@ -25,7 +25,9 @@ From CLI:
     
 For Web:
 
+```html
     <script src="rpn.js"></script>
     <script>
             console.log(rpn.parse('1 2 / 3 + 4 5 * -'))
     </script>
+```
