@@ -21,7 +21,7 @@ If you want to try to compile the source by yourself, be sure to check out [Jiso
 
 From CLI:
 
-    node rpn text.txt 
+    node rpn sample.txt 
     
 For Web:
 
