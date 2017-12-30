@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reverse Polish Notation Calculator</title>
+    <title>Reverse Polish to Infix Notation Converter</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="bin/rpn-parser.min.js"></script>
+    <script src="bin/rpn-2-infix-parser.min.js"></script>
     <script>
         $(function () {
             $('#input').on('keyup', function () {
                 try {
-                    $('#result').text(parser.parse($('#input').val()));
+                    $('#result').text(rpn2InfixGrammar.parse($('#input').val()));
                 } catch (e) {
                     $('#result').text('Invalid :(');
                 }
@@ -74,19 +74,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Reverse Polish Notation Calculator</h1>
+        <h1>Reverse Polish to Infix Notation Converter</h1>
         <div class="input-container">
             <input type="text" placeholder="1 3 5 + -" id="input">
         </div>
         <div class="result-container">
             <div>The result is</div>
-            <span id="result">-7</span>
+            <span id="result">1 - 3 + 5</span>
         </div>
         <div class="source">
             By <a href="http://facebook.com/WisdomSky" target="_blank">WisdomSky</a>.
             Check the source <a href="https://github.com/WisdomSky/reverse-polish-notation-js-parser" target="_blank">here</a>.
             <br><br><br>
-            Try the <a href="converter.html">RPN to Infix Converter</a>
+            Go back to the <a href="index.html">RPN Calculator</a>
         </div>
     </div>
 </body>
